@@ -10,9 +10,11 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
-            <Link to="/" className="text-2xl font-bold text-primary">Norexa</Link>
+            <Link to="/" className="flex items-center space-x-2">
+              <img src="/logo.png" alt="Norexa Logo" className="h-16 w-auto" />
+            </Link>
           </div>
           <div className="flex items-center space-x-6">
             <Link to="/shop" className="text-slate-600 hover:text-primary transition-colors">Shop</Link>
