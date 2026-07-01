@@ -9,6 +9,7 @@ const AdminLayout = ({ children }) => {
     { name: 'Products', path: '/admin/products' },
     { name: 'Orders', path: '/admin/orders' },
     { name: 'Users', path: '/admin/users' },
+    { name: 'Blogs', path: '/admin/blogs' },
   ];
 
   return (

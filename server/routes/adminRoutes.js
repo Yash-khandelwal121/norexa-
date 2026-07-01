@@ -31,7 +31,20 @@ router.post('/products', createProduct);
 router.put('/products/:id', updateProduct);
 router.delete('/products/:id', deleteProduct);
 
+import {
+  getAdminBlogs,
+  createBlog,
+  updateBlog,
+  deleteBlog
+} from '../controllers/blogController.js';
+
 // Orders
 router.get('/orders', getOrders);
+
+// Blogs
+router.get('/blogs', getAdminBlogs);
+router.post('/blogs', createBlog);
+router.put('/blogs/:id', updateBlog);
+router.delete('/blogs/:id', deleteBlog);
 
 export default router;

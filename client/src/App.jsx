@@ -21,6 +21,7 @@ import RefundPolicy from './pages/RefundPolicy';
 import NotFound from './pages/NotFound';
 import About from './pages/About';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
 // Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
@@ -28,6 +29,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminOrders from './pages/admin/AdminOrders';
 import AdminUsers from './pages/admin/AdminUsers';
+import AdminBlogs from './pages/admin/AdminBlogs';
 
 function App() {
   return (
@@ -48,6 +50,7 @@ function App() {
             <Route path="/refunds" element={<RefundPolicy />} />
             <Route path="/about" element={<About />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             
@@ -64,6 +67,7 @@ function App() {
               <Route path="/admin/products" element={<AdminLayout><AdminProducts /></AdminLayout>} />
               <Route path="/admin/orders" element={<AdminLayout><AdminOrders /></AdminLayout>} />
               <Route path="/admin/users" element={<AdminLayout><AdminUsers /></AdminLayout>} />
+              <Route path="/admin/blogs" element={<AdminLayout><AdminBlogs /></AdminLayout>} />
             </Route>
           </Routes>
         </main>
