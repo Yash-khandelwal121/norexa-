@@ -119,17 +119,15 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-// @desc    Delete a product (Soft Delete)
+// @desc    Delete a product
 // @route   DELETE /api/admin/products/:id
 // @access  Private/Admin
 export const deleteProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findByIdAndDelete(req.params.id);
 
     if (product) {
-      product.isPublished = false;
-      await product.save();
-      res.json({ message: 'Product soft deleted (unpublished)' });
+      res.json({ message: 'Product removed' });
     } else {
       res.status(404).json({ message: 'Product not found' });
     }

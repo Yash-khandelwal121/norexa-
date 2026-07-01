@@ -90,7 +90,7 @@ const AdminProducts = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm('Are you sure you want to unpublish this product?')) {
+    if (window.confirm('Are you sure you want to delete this product permanently?')) {
       try {
         await api.delete(`/admin/products/${id}`);
         fetchProducts();
