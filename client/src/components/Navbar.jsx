@@ -2,27 +2,53 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
+import { Search, ShoppingCart } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav className="sticky top-0 z-50 bg-[#070B16]/80 backdrop-blur-xl border-b border-white/10">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="flex justify-between items-center h-24">
+          {/* Left: Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="/logo.png" alt="Norexa Logo" className="h-16 w-auto" />
+              <span className="text-3xl font-bold tracking-tight text-white flex items-center">
+                <span className="text-[#F5B301] mr-1">N</span>orexa
+              </span>
             </Link>
           </div>
+          
+          {/* Center: Navigation Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link to="/" className="text-sm font-medium text-white border-b-2 border-[#F5B301] pb-1">Home</Link>
+            <Link to="/shop" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Shop</Link>
+            <Link to="/shop" className="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center">
+              Categories <span className="ml-1 text-[10px]">▼</span>
+            </Link>
+            <Link to="/about" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">About Us</Link>
+            <Link to="/blog" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Blog</Link>
+            <Link to="/contact" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Contact</Link>
+          </div>
+
+          {/* Right: Search, Cart, Login */}
           <div className="flex items-center space-x-6">
-            <Link to="/shop" className="text-slate-600 hover:text-primary transition-colors">Shop</Link>
+            <div className="hidden lg:flex items-center relative">
+              <input 
+                type="text" 
+                placeholder="Search products..." 
+                className="bg-white/5 border border-white/10 rounded-full py-2 pl-4 pr-10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-white/20 transition-colors w-64"
+              />
+              <Search className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
             
-            <Link to="/cart" className="relative text-slate-600 hover:text-primary transition-colors">
-              Cart
-              {cart.length > 0 && (
-                <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+            <Link to="/cart" className="relative text-slate-300 hover:text-[#F5B301] transition-colors">
+              <ShoppingCart className="w-6 h-6" />
+              {cart && cart.length > 0 && (
+                <span className="absolute -top-1.5 -right-2 bg-[#F5B301] text-black text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
                   {cart.length}
                 </span>
               )}
@@ -30,18 +56,19 @@ const Navbar = () => {
 
             {user ? (
               <div className="flex items-center space-x-4">
-                <Link to="/dashboard" className="text-slate-600 hover:text-primary transition-colors">Dashboard</Link>
+                <Link to="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Dashboard</Link>
                 {user.role === 'admin' && (
-                  <Link to="/admin" className="text-slate-600 hover:text-primary transition-colors">Admin</Link>
+                  <Link to="/admin" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Admin</Link>
                 )}
-                <button onClick={logout} className="text-sm font-medium text-slate-500 hover:text-red-500 transition-colors">
+                <button onClick={logout} className="text-sm font-medium text-slate-400 hover:text-red-400 transition-colors">
                   Logout
                 </button>
               </div>
             ) : (
               <div className="flex space-x-4">
-                <Link to="/login" className="text-slate-600 hover:text-primary transition-colors">Login</Link>
-                <Link to="/register" className="btn-primary py-2 px-4 text-sm rounded-lg">Sign Up</Link>
+                <Link to="/login" className="bg-[#F5B301] text-black font-semibold py-2.5 px-6 rounded-full hover:bg-[#d99d00] transition-colors shadow-lg shadow-[#F5B301]/20 text-sm">
+                  Login / Sign Up
+                </Link>
               </div>
             )}
           </div>

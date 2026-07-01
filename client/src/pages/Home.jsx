@@ -1,78 +1,176 @@
-import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { 
+  BookOpen, 
+  PlayCircle, 
+  LayoutTemplate, 
+  Code2, 
+  Sparkles, 
+  Briefcase,
+  Users,
+  Box,
+  Star,
+  Headphones
+} from 'lucide-react';
 import SEOHead from '../components/SEOHead';
-import ProductCard from '../components/ProductCard';
-import api from '../utils/api';
+
+const categories = [
+  { id: 'ebook', title: 'eBooks', icon: BookOpen, count: '120+', color: 'text-blue-400', bg: 'bg-blue-400/10' },
+  { id: 'video', title: 'Video Courses', icon: PlayCircle, count: '80+', color: 'text-orange-400', bg: 'bg-orange-400/10' },
+  { id: 'template', title: 'Templates', icon: LayoutTemplate, count: '150+', color: 'text-purple-400', bg: 'bg-purple-400/10' },
+  { id: 'bundle', title: 'Source Code', icon: Code2, count: '90+', color: 'text-green-400', bg: 'bg-green-400/10', fallback: '/shop' },
+  { id: 'ai', title: 'AI Prompts', icon: Sparkles, count: '60+', color: 'text-cyan-400', bg: 'bg-cyan-400/10', fallback: '/shop' },
+  { id: 'business', title: 'Business Tools', icon: Briefcase, count: '70+', color: 'text-pink-400', bg: 'bg-pink-400/10', fallback: '/shop' },
+];
+
+const stats = [
+  { label: 'Happy Customers', value: '5,000+', icon: Users },
+  { label: 'Premium Products', value: '1,200+', icon: Box },
+  { label: 'Customer Rating', value: '4.9/5', icon: Star },
+  { label: 'Support Available', value: '24/7', icon: Headphones },
+];
 
 const Home = () => {
-  const [featuredProducts, setFeaturedProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchFeatured = async () => {
-      try {
-        const { data } = await api.get('/products/featured');
-        setFeaturedProducts(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchFeatured();
-  }, []);
-
   return (
     <>
-      <SEOHead title="Home" />
+      <SEOHead title="Norexa - Premium Digital Resources" />
       
+      {/* Background Decor */}
+      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-blue-900/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#F5B301]/5 rounded-full blur-[100px]" />
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-white -z-10" />
-        <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight mb-8">
-            Master Your Craft with <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-400">Premium Resources</span>
-          </h1>
-          <p className="mt-4 text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Discover high-quality eBooks, video courses, and templates designed to elevate your skills and accelerate your career.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Link to="/shop" className="btn-primary text-lg px-8 py-4 w-full sm:w-auto">
-              Explore the Shop
+      <section className="relative pt-24 pb-32 lg:pt-32 overflow-hidden max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Side: Content */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col space-y-8 relative z-10"
+          >
+            <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 w-max backdrop-blur-md">
+              <Star className="w-4 h-4 text-[#F5B301] fill-[#F5B301]" />
+              <span className="text-xs font-semibold tracking-wider text-[#F5B301] uppercase">Premium Digital Resources</span>
+            </div>
+            
+            <h1 className="text-6xl md:text-7xl lg:text-[80px] font-extrabold leading-[1.1] tracking-tight text-white">
+              Learn.<br/>
+              Create.<br/>
+              Grow.<br/>
+              <span className="text-[#F5B301]">Succeed.</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-slate-400 max-w-lg leading-relaxed font-light">
+              Discover high-quality eBooks, video courses, templates and digital resources to unlock your full potential.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 pt-2">
+              <Link to="/shop" className="w-full sm:w-auto bg-[#F5B301] text-black font-semibold px-8 py-4 rounded-2xl hover:bg-[#d99d00] transition-all duration-300 shadow-[0_0_30px_rgba(245,179,1,0.3)] hover:shadow-[0_0_40px_rgba(245,179,1,0.5)] hover:-translate-y-1 text-center">
+                Explore Products
+              </Link>
+              <Link to="/shop" className="w-full sm:w-auto bg-white/5 text-white font-semibold px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/10 hover:border-white/30 transition-all duration-300 backdrop-blur-md text-center flex justify-center items-center space-x-2">
+                <span>Browse Categories</span>
+                <LayoutTemplate className="w-5 h-5 ml-2 opacity-70" />
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-white/10 mt-8">
+              {stats.map((stat, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 + (idx * 0.1) }}
+                  className="flex flex-col space-y-2"
+                >
+                  <div className="flex items-center space-x-2 text-[#F5B301]">
+                    <stat.icon className="w-5 h-5" />
+                    <span className="text-2xl font-bold text-white">{stat.value}</span>
+                  </div>
+                  <span className="text-sm text-slate-400">{stat.label}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Side: 3D Workspace Mockup */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="relative lg:h-[700px] flex items-center justify-center pointer-events-none"
+          >
+            {/* Soft backdrop glow for the image */}
+            <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-[100px]" />
+            
+            <motion.img 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              src="/premium_workspace.png" 
+              alt="Premium Digital Workspace" 
+              className="relative z-10 w-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] scale-110 lg:scale-125 origin-center"
+            />
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section className="py-24 relative z-10 bg-black/20 border-t border-white/5">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Browse Categories</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Find the Right <span className="text-[#F5B301]">Resource</span> for You
+              </h2>
+            </div>
+            <Link to="/shop" className="hidden md:flex items-center text-sm font-medium text-slate-300 hover:text-white transition-colors">
+              View All Categories <span className="ml-2">→</span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+            {categories.map((cat, idx) => (
+              <motion.div
+                key={cat.id}
+                whileHover={{ y: -8, scale: 1.02 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+              >
+                <Link to={cat.fallback || `/shop?type=${cat.id}`} className="block h-full">
+                  <div className="glass-card rounded-[18px] p-6 h-full flex flex-row xl:flex-col items-center xl:items-start space-x-4 xl:space-x-0 xl:space-y-6 group hover:bg-white/10 transition-colors">
+                    <div className={`p-4 rounded-2xl ${cat.bg} group-hover:scale-110 transition-transform duration-300`}>
+                      <cat.icon className={`w-8 h-8 ${cat.color}`} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-1">{cat.title}</h3>
+                      <p className="text-sm text-slate-400">{cat.count} Products</p>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="mt-8 md:hidden flex justify-center">
+            <Link to="/shop" className="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center">
+              View All Categories <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
       </section>
-
-      {/* Featured Products */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Featured Resources</h2>
-            <p className="text-lg text-slate-500">Hand-picked by our experts for maximum impact.</p>
-          </div>
-
-          {loading ? (
-            <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {featuredProducts.length > 0 ? (
-                featuredProducts.map(product => (
-                  <ProductCard key={product._id} product={product} />
-                ))
-              ) : (
-                <div className="col-span-full text-center py-12 text-slate-500 bg-slate-50 rounded-2xl border border-slate-100">
-                  No featured products available at the moment.
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </section>
+      
+      {/* Extra padding for visual completion of the landing page */}
+      <div className="pb-32"></div>
     </>
   );
 };
