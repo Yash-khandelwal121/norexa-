@@ -8,7 +8,7 @@ const Footer = () => {
           
           <div className="md:col-span-1">
             <Link to="/" className="block mb-6">
-              <img src="/logo.png" alt="Norexa Logo" className="h-20 w-auto invert brightness-0 filter" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/logo2.png" alt="Norexa Logo" className="h-12 w-auto" />
             </Link>
             <p className="text-sm leading-relaxed mb-6">
               Premium digital products to elevate your skills. Unlock your potential with our curated selection of top-tier resources.
