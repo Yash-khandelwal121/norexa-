@@ -40,7 +40,7 @@ export const createCheckoutSession = async (req, res) => {
         currency: 'usd',
         product_data: {
           name: product.title,
-          images: product.thumbnail ? [product.thumbnail] : [],
+          images: (product.thumbnail && product.thumbnail.startsWith('http')) ? [product.thumbnail] : [],
         },
         unit_amount: Math.round(product.price * 100), // Stripe requires cents
       },
