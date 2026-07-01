@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
-import { Search, ShoppingCart } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
@@ -11,6 +11,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -87,7 +88,7 @@ const Navbar = () => {
             </Link>
 
             {user ? (
-              <div className="flex items-center space-x-4">
+              <div className="hidden md:flex items-center space-x-4">
                 <Link to="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Dashboard</Link>
                 {user.role === 'admin' && (
                   <Link to="/admin" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Admin</Link>
@@ -97,15 +98,71 @@ const Navbar = () => {
                 </button>
               </div>
             ) : (
-              <div className="flex space-x-4">
+              <div className="hidden md:flex space-x-4">
                 <Link to="/login" className="bg-[#F5B301] text-black font-semibold py-2.5 px-6 rounded-full hover:bg-[#d99d00] transition-colors shadow-lg shadow-[#F5B301]/20 text-sm">
                   Login / Sign Up
                 </Link>
               </div>
             )}
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden text-slate-300 hover:text-white transition-colors ml-4"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden bg-[#070B16] border-b border-white/10 px-6 py-6 absolute w-full left-0 top-full shadow-2xl z-40"
+        >
+          <div className="flex flex-col space-y-4">
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg">Home</Link>
+            <Link to="/shop" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg">Shop Resources</Link>
+            <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg">About Us</Link>
+            <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg">Blog</Link>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg">Contact</Link>
+            
+            <div className="pt-6 mt-2 border-t border-white/10">
+              <form onSubmit={(e) => { handleSearch(e); setIsMobileMenuOpen(false); }} className="relative mb-6">
+                <input 
+                  type="text" 
+                  placeholder="Search products..." 
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-4 pr-10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-white/20"
+                />
+                <button type="submit" className="absolute right-4 top-1/2 -translate-y-1/2">
+                  <Search className="w-4 h-4 text-slate-400" />
+                </button>
+              </form>
+              
+              {user ? (
+                <div className="flex flex-col space-y-4">
+                  <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg">My Dashboard</Link>
+                  {user.role === 'admin' && (
+                    <Link to="/admin" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 hover:text-white font-medium text-lg">Admin Panel</Link>
+                  )}
+                  <button onClick={() => { handleLogout(); setIsMobileMenuOpen(false); }} className="text-left text-slate-400 hover:text-red-400 font-medium text-lg">
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link to="/login" onClick={() => setIsMobileMenuOpen(false)} className="block text-center bg-[#F5B301] text-black font-semibold py-3 px-6 rounded-full hover:bg-[#d99d00] transition-colors mt-2">
+                  Login / Sign Up
+                </Link>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      )}
     </nav>
   );
 };
