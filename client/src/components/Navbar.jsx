@@ -33,9 +33,17 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className={getLinkClass('/')}>Home</Link>
             <Link to="/shop" className={getLinkClass('/shop')}>Shop</Link>
-            <Link to="/shop" className="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center pb-1 border-b-2 border-transparent">
-              Categories <span className="ml-1 text-[10px]">▼</span>
-            </Link>
+            <div className="relative group">
+              <button className="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center pb-1 border-b-2 border-transparent group-hover:text-white">
+                Categories <span className="ml-1 text-[10px]">▼</span>
+              </button>
+              <div className="absolute left-0 mt-2 w-48 bg-[#070B16] border border-white/10 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left flex flex-col py-2 z-50">
+                <Link to="/shop?type=ebook" className="px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/10 transition-colors">eBooks</Link>
+                <Link to="/shop?type=video" className="px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/10 transition-colors">Video Courses</Link>
+                <Link to="/shop?type=template" className="px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/10 transition-colors">Templates</Link>
+                <Link to="/shop" className="px-4 py-2 text-sm text-[#F5B301] hover:bg-white/10 transition-colors border-t border-white/10 mt-1 pt-3">View All Resources</Link>
+              </div>
+            </div>
             <Link to="/about" className={getLinkClass('/about')}>About Us</Link>
             <Link to="/blog" className={getLinkClass('/blog')}>Blog</Link>
             <Link to="/contact" className={getLinkClass('/contact')}>Contact</Link>

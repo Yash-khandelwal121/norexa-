@@ -19,6 +19,8 @@ import TermsOfService from './pages/TermsOfService';
 import ContactSupport from './pages/ContactSupport';
 import RefundPolicy from './pages/RefundPolicy';
 import NotFound from './pages/NotFound';
+import About from './pages/About';
+import Blog from './pages/Blog';
 
 // Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
@@ -44,6 +46,8 @@ function App() {
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/contact" element={<ContactSupport />} />
             <Route path="/refunds" element={<RefundPolicy />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             

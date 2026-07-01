@@ -18,9 +18,6 @@ const categories = [
   { id: 'ebook', title: 'eBooks', icon: BookOpen, count: '120+', color: 'text-blue-400', bg: 'bg-blue-400/10' },
   { id: 'video', title: 'Video Courses', icon: PlayCircle, count: '80+', color: 'text-orange-400', bg: 'bg-orange-400/10' },
   { id: 'template', title: 'Templates', icon: LayoutTemplate, count: '150+', color: 'text-purple-400', bg: 'bg-purple-400/10' },
-  { id: 'bundle', title: 'Source Code', icon: Code2, count: '90+', color: 'text-green-400', bg: 'bg-green-400/10', fallback: '/shop' },
-  { id: 'ai', title: 'AI Prompts', icon: Sparkles, count: '60+', color: 'text-cyan-400', bg: 'bg-cyan-400/10', fallback: '/shop' },
-  { id: 'business', title: 'Business Tools', icon: Briefcase, count: '70+', color: 'text-pink-400', bg: 'bg-pink-400/10', fallback: '/shop' },
 ];
 
 const stats = [
@@ -136,7 +133,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((cat, idx) => (
               <motion.div
                 key={cat.id}
