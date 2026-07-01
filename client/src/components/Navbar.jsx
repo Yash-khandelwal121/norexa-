@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
 import { Search, ShoppingCart } from 'lucide-react';
@@ -8,6 +8,13 @@ import { motion } from 'framer-motion';
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
+  const location = useLocation();
+
+  const getLinkClass = (path) => {
+    return location.pathname === path
+      ? "text-sm font-medium text-white border-b-2 border-[#F5B301] pb-1"
+      : "text-sm font-medium text-slate-300 hover:text-white transition-colors pb-1 border-b-2 border-transparent";
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-[#070B16]/80 backdrop-blur-xl border-b border-white/10">
@@ -24,14 +31,14 @@ const Navbar = () => {
           
           {/* Center: Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-sm font-medium text-white border-b-2 border-[#F5B301] pb-1">Home</Link>
-            <Link to="/shop" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Shop</Link>
-            <Link to="/shop" className="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center">
+            <Link to="/" className={getLinkClass('/')}>Home</Link>
+            <Link to="/shop" className={getLinkClass('/shop')}>Shop</Link>
+            <Link to="/shop" className="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center pb-1 border-b-2 border-transparent">
               Categories <span className="ml-1 text-[10px]">▼</span>
             </Link>
-            <Link to="/about" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">About Us</Link>
-            <Link to="/blog" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Blog</Link>
-            <Link to="/contact" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Contact</Link>
+            <Link to="/about" className={getLinkClass('/about')}>About Us</Link>
+            <Link to="/blog" className={getLinkClass('/blog')}>Blog</Link>
+            <Link to="/contact" className={getLinkClass('/contact')}>Contact</Link>
           </div>
 
           {/* Right: Search, Cart, Login */}
