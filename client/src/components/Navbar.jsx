@@ -38,7 +38,7 @@ const Navbar = () => {
           {/* Left: Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center space-x-2">
-              <img src="/logo2.png" alt="Norexa" className="h-10 md:h-12 w-auto" />
+              <img src="/logo-full.svg" alt="Norexa" className="h-8 md:h-10 w-auto" />
             </Link>
           </div>
           
