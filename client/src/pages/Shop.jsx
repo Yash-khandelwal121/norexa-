@@ -86,7 +86,7 @@ const Shop = () => {
                 <input 
                   type="text" 
                   placeholder="Search products..." 
-                  className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full p-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-slate-900 placeholder-slate-400"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
@@ -107,7 +107,7 @@ const Shop = () => {
                       onChange={(e) => handleTypeChange(e.target.value)}
                       className="form-radio h-4 w-4 text-primary border-slate-300 focus:ring-primary"
                     />
-                    <span className="text-slate-700 capitalize">{t === '' ? 'All Types' : t}</span>
+                    <span className="text-slate-200 capitalize">{t === '' ? 'All Types' : t}</span>
                   </label>
                 ))}
               </div>
@@ -116,7 +116,7 @@ const Shop = () => {
             <div className="glass-card p-6 rounded-2xl">
               <h3 className="font-bold mb-4 text-lg">Sort By</h3>
               <select 
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full p-3 bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-slate-900"
                 value={sort}
                 onChange={(e) => handleSortChange(e.target.value)}
               >
