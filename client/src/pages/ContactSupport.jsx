@@ -15,22 +15,22 @@ const ContactSupport = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">First Name</label>
-                <input type="text" required className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                <input type="text" required className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none text-slate-900" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
-                <input type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                <input type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none text-slate-900" />
               </div>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
-              <input type="email" required className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+              <input type="email" required className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none text-slate-900" />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">Message</label>
-              <textarea required rows="5" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" placeholder="How can we help you?"></textarea>
+              <textarea required rows="5" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none text-slate-900" placeholder="How can we help you?"></textarea>
             </div>
 
             <button type="submit" className="w-full btn-primary py-4 text-lg">
