@@ -54,7 +54,7 @@ const Register = () => {
               <input
                 type="text"
                 required
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-slate-900"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -64,7 +64,7 @@ const Register = () => {
               <input
                 type="email"
                 required
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-slate-900"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -74,7 +74,7 @@ const Register = () => {
               <input
                 type="password"
                 required
-                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full p-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-slate-900"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

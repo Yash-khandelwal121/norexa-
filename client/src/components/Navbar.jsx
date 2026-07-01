@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
 import { Search, ShoppingCart } from 'lucide-react';
@@ -9,6 +9,16 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/shop?search=${encodeURIComponent(searchTerm)}`);
+      setSearchTerm('');
+    }
+  };
 
   const getLinkClass = (path) => {
     return location.pathname === path
@@ -51,14 +61,18 @@ const Navbar = () => {
 
           {/* Right: Search, Cart, Login */}
           <div className="flex items-center space-x-6">
-            <div className="hidden lg:flex items-center relative">
+            <form onSubmit={handleSearch} className="hidden lg:flex items-center relative">
               <input 
                 type="text" 
                 placeholder="Search products..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="bg-white/5 border border-white/10 rounded-full py-2 pl-4 pr-10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-white/20 transition-colors w-64"
               />
-              <Search className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
-            </div>
+              <button type="submit" className="absolute right-4 top-1/2 -translate-y-1/2">
+                <Search className="w-4 h-4 text-slate-400 hover:text-white transition-colors" />
+              </button>
+            </form>
             
             <Link to="/cart" className="relative text-slate-300 hover:text-[#F5B301] transition-colors">
               <ShoppingCart className="w-6 h-6" />
