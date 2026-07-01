@@ -186,27 +186,27 @@ const AdminProducts = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Title</label>
-                  <input type="text" name="title" required value={formData.title} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                  <input type="text" name="title" required value={formData.title} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Slug</label>
-                  <input type="text" name="slug" required value={formData.slug} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                  <input type="text" name="slug" required value={formData.slug} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
                 </div>
               </div>
               
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Description</label>
-                <textarea name="description" required rows="3" value={formData.description} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none"></textarea>
+                <textarea name="description" required rows="3" value={formData.description} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none"></textarea>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Price ($)</label>
-                  <input type="number" step="0.01" name="price" required value={formData.price} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                  <input type="number" step="0.01" name="price" required value={formData.price} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Product Type</label>
-                  <select name="type" value={formData.type} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none">
+                  <select name="type" value={formData.type} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none">
                     <option value="ebook">eBook</option>
                     <option value="video">Video Course</option>
                     <option value="template">Template</option>
@@ -217,12 +217,12 @@ const AdminProducts = () => {
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Thumbnail URL</label>
-                <input type="url" name="thumbnail" value={formData.thumbnail} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                <input type="url" name="thumbnail" value={formData.thumbnail} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Google Drive Link</label>
-                <input type="url" name="googleDriveLink" required value={formData.googleDriveLink} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                <input type="url" name="googleDriveLink" required value={formData.googleDriveLink} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
               </div>
 
               <div className="flex items-center space-x-2 pt-2">

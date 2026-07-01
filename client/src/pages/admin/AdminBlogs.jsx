@@ -184,27 +184,27 @@ const AdminBlogs = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Title</label>
-                  <input type="text" name="title" required value={formData.title} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                  <input type="text" name="title" required value={formData.title} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Slug</label>
-                  <input type="text" name="slug" required value={formData.slug} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
+                  <input type="text" name="slug" required value={formData.slug} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" />
                 </div>
               </div>
               
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Thumbnail URL</label>
-                <input type="url" name="thumbnail" value={formData.thumbnail} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" placeholder="https://example.com/image.jpg" />
+                <input type="url" name="thumbnail" value={formData.thumbnail} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none" placeholder="https://example.com/image.jpg" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Excerpt (Short Description)</label>
-                <textarea name="excerpt" rows="2" value={formData.excerpt} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none"></textarea>
+                <textarea name="excerpt" rows="2" value={formData.excerpt} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none"></textarea>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Content (Markdown / HTML)</label>
-                <textarea name="content" required rows="10" value={formData.content} onChange={handleFormChange} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none font-mono text-sm"></textarea>
+                <textarea name="content" required rows="10" value={formData.content} onChange={handleFormChange} className="w-full p-3 bg-slate-50 text-slate-900 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary/50 outline-none font-mono text-sm"></textarea>
               </div>
 
               <div className="flex items-center space-x-2 pt-2">
