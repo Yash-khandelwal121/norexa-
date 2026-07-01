@@ -4,6 +4,7 @@ import SEOHead from '../components/SEOHead';
 import { motion } from 'framer-motion';
 import api from '../utils/api';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -108,7 +109,7 @@ const BlogPost = () => {
             transition={{ delay: 0.4 }}
             className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-[#F5B301] hover:prose-a:text-yellow-300 prose-img:rounded-2xl"
           >
-            <ReactMarkdown>{blog.content}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{blog.content}</ReactMarkdown>
           </motion.div>
         </div>
       </article>
