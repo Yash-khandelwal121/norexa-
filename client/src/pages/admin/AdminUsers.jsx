@@ -27,7 +27,7 @@ const AdminUsers = () => {
         await api.patch(`/admin/users/${id}/role`, { role: newRole });
         fetchUsers();
       } catch (error) {
-        alert('Error updating user role');
+        alert('Error updating user role: ' + (error.response?.data?.message || error.message));
       }
     }
   };

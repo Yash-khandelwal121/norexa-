@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,6 +18,11 @@ const Navbar = () => {
       navigate(`/shop?search=${encodeURIComponent(searchTerm)}`);
       setSearchTerm('');
     }
+  };
+
+  const handleLogout = () => {
+    clearCart();
+    logout();
   };
 
   const getLinkClass = (path) => {
@@ -89,7 +94,7 @@ const Navbar = () => {
                 {user.role === 'admin' && (
                   <Link to="/admin" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Admin</Link>
                 )}
-                <button onClick={logout} className="text-sm font-medium text-slate-400 hover:text-red-400 transition-colors">
+                <button onClick={handleLogout} className="text-sm font-medium text-slate-400 hover:text-red-400 transition-colors">
                   Logout
                 </button>
               </div>
