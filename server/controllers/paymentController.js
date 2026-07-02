@@ -156,7 +156,7 @@ export const stripeWebhook = async (req, res) => {
                 <span style="color: #e2e8f0; font-weight: 600;">Norexa</span> &middot; 
                 <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/terms" style="color: #F5B301; text-decoration: none; margin: 0 6px;">Terms & Conditions</a> &middot; 
                 <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/privacy" style="color: #F5B301; text-decoration: none; margin: 0 6px;">Privacy Policy</a> &middot; 
-                <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/refund" style="color: #F5B301; text-decoration: none; margin: 0 6px;">Refund Policy</a>
+                <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/refunds" style="color: #F5B301; text-decoration: none; margin: 0 6px;">Refund Policy</a>
               </div>
             </div>
           </div>

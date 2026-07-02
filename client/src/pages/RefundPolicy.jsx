@@ -11,29 +11,29 @@ const RefundPolicy = () => {
         <div className="prose prose-slate max-w-none text-slate-600 space-y-6">
           <p className="text-lg">Last updated: {new Date().toLocaleDateString()}</p>
           
-          <h2 className="text-2xl font-bold text-slate-800 mt-8">1. Digital Products</h2>
+          <h2 className="text-2xl font-bold text-slate-800 mt-8">1. 30-Day Money-Back Guarantee</h2>
           <p>
-            Because Norexa offers irrevocable digital goods (eBooks, Video Courses, Templates), we do not generally issue refunds once the order is completed and the product access link has been delivered. 
-            As a customer, you are responsible for understanding this upon purchasing any item at our site.
+            We stand behind the quality of our digital products (eBooks, Video Courses, Templates) at Norexa. 
+            If you are not completely satisfied with your purchase for any reason, we offer a full, no-questions-asked refund within 30 days of your original purchase date.
           </p>
 
-          <h2 className="text-2xl font-bold text-slate-800 mt-8">2. Exceptions</h2>
-          <p>We realize that exceptional circumstance can take place with regard to the character of the product we supply. Therefore, we do honor requests for a refund on the following reasons:</p>
+          <h2 className="text-2xl font-bold text-slate-800 mt-8">2. How to Request a Refund</h2>
+          <p>To request a refund within the 30-day window, simply follow these steps:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong>Non-delivery of the product:</strong> due to some mailing issues of your e-mail provider or your own mail server you might not receive a delivery e-mail from us. In this case we recommend contacting us for assistance. Claims for non-delivery must be submitted within 7 days from the order placing date.
+              Reply to your original purchase confirmation email and state that you would like a refund.
             </li>
             <li>
-              <strong>Major defects:</strong> although all the products are thoroughly tested before release, unexpected errors may occur. Such issues must be submitted for our Technical Support Team's approval. 
+              Alternatively, you can reach out to our Technical Support Team via the Contact page with your Order Number and Email Address.
             </li>
             <li>
-              <strong>Product not-as-described:</strong> such issues should be reported to our Technical Support Department within 7 days from the date of the purchase. Clear evidence must be provided proving that the purchased product is not as it is described on the website.
+              Once we receive your request, your refund will be processed immediately and the funds will be returned to your original payment method within 3-5 business days.
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold text-slate-800 mt-8">3. Contact Us</h2>
+          <h2 className="text-2xl font-bold text-slate-800 mt-8">3. Access Revocation</h2>
           <p>
-            Please note that we do not bear any responsibility and therefore we do not satisfy any refund/return/exchange requests based on incompatibility of our products with some third-party software (plug-ins, add-ons, modules, search engines, scripts, extensions etc) other than those which are specified as compatible in a description available on the preview page of each product.
+            Please note that upon receiving your full refund, your access to the digital product(s) (including Google Drive folders) will be permanently revoked.
           </p>
           <p>
             If you have any questions or concerns about these policies, please reach out via our <Link to="/contact" className="text-primary hover:underline">Contact Support</Link> page.
