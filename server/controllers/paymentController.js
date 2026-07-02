@@ -115,13 +115,14 @@ export const stripeWebhook = async (req, res) => {
       const products = await Product.find({ _id: { $in: parsedProductIds } });
       
       // Generate email content
+      // Generate email content
       let productLinksHtml = '';
       products.forEach((product) => {
         productLinksHtml += `
           <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 24px; text-align: center;">
             <h3 style="margin-top: 0; color: #0f172a; font-size: 20px; font-weight: 700; margin-bottom: 20px;">${product.title}</h3>
             <a href="${product.googleDriveLink}" style="display: inline-block; padding: 14px 28px; background-color: #F5B301; color: #070B16; font-weight: 700; text-decoration: none; border-radius: 8px; font-size: 16px; box-shadow: 0 4px 6px -1px rgba(245, 179, 1, 0.2);">
-              Access Google Drive Folder &rarr;
+              Access Your Google Drive Folder &rarr;
             </a>
           </div>
         `;
@@ -134,28 +135,28 @@ export const stripeWebhook = async (req, res) => {
           </div>
           
           <div style="padding: 0 40px;">
-            <h2 style="color: #0f172a; font-size: 24px; margin-top: 0;">Your Purchase is Ready! 🎉</h2>
-            <p style="font-size: 16px;">Thank you for your order! Your payment was successful, and your premium digital resources are ready to be accessed below.</p>
+            <p style="font-size: 16px; margin-top: 0;">Hi there,</p>
+            <p style="font-size: 16px;">Thank you for your purchase! Your payment was successful and your digital content is ready to access right now.</p>
             
             <div style="margin: 40px 0;">
               ${productLinksHtml}
             </div>
             
             <p style="font-size: 14px; color: #64748b; background-color: #f1f5f9; padding: 16px; border-radius: 8px; text-align: center;">
-              <strong>Note:</strong> These links grant you view/download access to the files. Please keep this email safe for future reference.
+              🔒 <strong>This link is personal to your order</strong> — please keep this email saved for future reference.
             </p>
           </div>
           
           <div style="margin-top: 48px; padding: 40px 32px; background-color: #070B16; color: #94a3b8; text-align: center;">
-            <p style="margin-top: 0; font-weight: 600; color: #e2e8f0; font-size: 16px;">Norexa Support</p>
-            <p style="font-size: 14px; margin-bottom: 32px;">Need help? Reply directly to this email.</p>
+            <p style="font-size: 14px; margin-top: 0; margin-bottom: 32px; color: #cbd5e1;">Need help? Just reply to this email — we're happy to assist.</p>
             
             <div style="font-size: 13px; line-height: 1.8;">
-              <p style="margin: 0 0 16px 0; color: #cbd5e1;"><strong>30-Day Money-Back Guarantee</strong><br/>If you're not satisfied, we offer a full refund within 30 days of purchase. No questions asked.</p>
+              <p style="margin: 0 0 16px 0; color: #cbd5e1;"><strong>30-Day Money-Back Guarantee</strong> — Not satisfied? Full refund, no questions asked.</p>
               <div>
-                <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/terms" style="color: #F5B301; text-decoration: none; margin: 0 10px;">Terms & Conditions</a> | 
-                <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/privacy" style="color: #F5B301; text-decoration: none; margin: 0 10px;">Privacy Policy</a> | 
-                <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/refund" style="color: #F5B301; text-decoration: none; margin: 0 10px;">Refund Policy</a>
+                <span style="color: #e2e8f0; font-weight: 600;">Norexa</span> &middot; 
+                <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/terms" style="color: #F5B301; text-decoration: none; margin: 0 6px;">Terms & Conditions</a> &middot; 
+                <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/privacy" style="color: #F5B301; text-decoration: none; margin: 0 6px;">Privacy Policy</a> &middot; 
+                <a href="${process.env.CLIENT_URL || 'https://norexa.onrender.com'}/refund" style="color: #F5B301; text-decoration: none; margin: 0 6px;">Refund Policy</a>
               </div>
             </div>
           </div>
@@ -165,7 +166,7 @@ export const stripeWebhook = async (req, res) => {
       // Send Email
       await sendEmail({
         email: email,
-        subject: 'Your Norexa Purchase — Access Inside 🎉',
+        subject: 'Your Norexa Order is Confirmed ✨',
         message: message,
       });
 
