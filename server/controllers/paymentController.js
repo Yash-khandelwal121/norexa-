@@ -118,9 +118,11 @@ export const stripeWebhook = async (req, res) => {
       // Generate email content
       let productLinksHtml = '';
       products.forEach((product) => {
+        const desc = product.shortDescription || (product.description ? product.description.substring(0, 120) + '...' : '');
         productLinksHtml += `
           <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 24px; text-align: center;">
-            <h3 style="margin-top: 0; color: #0f172a; font-size: 20px; font-weight: 700; margin-bottom: 20px;">${product.title}</h3>
+            <h3 style="margin-top: 0; color: #0f172a; font-size: 20px; font-weight: 700; margin-bottom: 10px;">${product.title}</h3>
+            ${desc ? `<p style="color: #64748b; font-size: 14px; margin-top: 0; margin-bottom: 20px; line-height: 1.5;">${desc}</p>` : ''}
             <a href="${product.googleDriveLink}" style="display: inline-block; padding: 14px 28px; background-color: #F5B301; color: #070B16; font-weight: 700; text-decoration: none; border-radius: 8px; font-size: 16px; box-shadow: 0 4px 6px -1px rgba(245, 179, 1, 0.2);">
               Access Your Google Drive Folder &rarr;
             </a>

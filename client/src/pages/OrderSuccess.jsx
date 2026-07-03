@@ -33,7 +33,7 @@ const OrderSuccess = () => {
             <Link to="/dashboard" className="w-full btn-primary block text-center">
               Go to Dashboard
             </Link>
-            <Link to="/shop" className="w-full btn-secondary block text-center">
+            <Link to="/shop" className="w-full px-6 py-4 bg-slate-100 text-slate-900 font-semibold rounded-2xl border border-slate-200 hover:bg-slate-200 transition-all block text-center">
               Continue Shopping
             </Link>
           </div>

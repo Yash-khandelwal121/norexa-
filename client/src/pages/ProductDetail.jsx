@@ -101,7 +101,7 @@ const ProductDetail = () => {
               {inCart ? (
                 <button 
                   onClick={() => navigate('/cart')}
-                  className="w-full btn-secondary py-4 text-lg"
+                  className="w-full px-6 py-4 bg-slate-100 text-slate-900 font-semibold rounded-2xl border border-slate-200 hover:bg-slate-200 transition-all text-lg"
                 >
                   View in Cart
                 </button>
