@@ -6,18 +6,18 @@ const RefundPolicy = () => {
     <>
       <SEOHead title="Refund Policy" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 className="text-4xl font-bold mb-8 text-slate-900">Refund Policy</h1>
+        <h1 className="text-4xl font-bold mb-8 text-white">Refund Policy</h1>
         
-        <div className="prose prose-slate max-w-none text-slate-600 space-y-6">
+        <div className="prose prose-slate max-w-none text-slate-300 space-y-6">
           <p className="text-lg">Last updated: {new Date().toLocaleDateString()}</p>
           
-          <h2 className="text-2xl font-bold text-slate-800 mt-8">1. 30-Day Money-Back Guarantee</h2>
+          <h2 className="text-2xl font-bold text-slate-100 mt-8">1. 30-Day Money-Back Guarantee</h2>
           <p>
             We stand behind the quality of our digital products (eBooks, Video Courses, Templates) at Norexa. 
             If you are not completely satisfied with your purchase for any reason, we offer a full, no-questions-asked refund within 30 days of your original purchase date.
           </p>
 
-          <h2 className="text-2xl font-bold text-slate-800 mt-8">2. How to Request a Refund</h2>
+          <h2 className="text-2xl font-bold text-slate-100 mt-8">2. How to Request a Refund</h2>
           <p>To request a refund within the 30-day window, simply follow these steps:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
@@ -31,7 +31,7 @@ const RefundPolicy = () => {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold text-slate-800 mt-8">3. Access Revocation</h2>
+          <h2 className="text-2xl font-bold text-slate-100 mt-8">3. Access Revocation</h2>
           <p>
             Please note that upon receiving your full refund, your access to the digital product(s) (including Google Drive folders) will be permanently revoked.
           </p>
