@@ -12,32 +12,66 @@ const About = () => {
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[120px]" />
         <div className="absolute top-[20%] right-[-10%] w-[30%] h-[30%] bg-[#F5B301]/10 rounded-full blur-[100px]" />
 
-        <div className="max-w-[1400px] mx-auto text-center relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-sm font-medium mb-6 backdrop-blur-md"
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          <div className="text-left">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-block px-4 py-1.5 rounded-full bg-[#F5B301]/10 border border-[#F5B301]/20 text-[#F5B301] text-sm font-bold tracking-wider uppercase mb-6 backdrop-blur-md"
+            >
+              ✨ Our Story
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]"
+            >
+              Empowering the next <br className="hidden md:block" />
+              generation of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B301] to-yellow-300">Creators.</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-10"
+            >
+              Norexa is a premium digital marketplace dedicated to providing high-quality educational resources, tools, and assets for modern professionals and creative minds.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <a href="/shop" className="btn-primary py-4 px-10 text-lg inline-flex items-center">
+                Explore Premium Products
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </motion.div>
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-[#F5B301]/10 group"
           >
-            ✨ OUR STORY
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+            <img 
+              src="/images/about-hero.png" 
+              alt="Norexa Creators Inspiration" 
+              className="w-full h-[500px] object-cover transform group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div className="absolute bottom-6 left-6 z-20">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl">
+                <p className="text-white font-bold text-xl">10k+ Creators</p>
+                <p className="text-[#F5B301] font-semibold text-sm">Building the future today</p>
+              </div>
+            </div>
           </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6"
-          >
-            Empowering the next <br className="hidden md:block" />
-            generation of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5B301] to-yellow-300">Creators.</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
-          >
-            Norexa is a premium digital marketplace dedicated to providing high-quality educational resources, tools, and assets for modern professionals and creative minds.
-          </motion.p>
         </div>
       </section>
 
