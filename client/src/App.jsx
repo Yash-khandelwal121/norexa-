@@ -23,6 +23,8 @@ import About from './pages/About';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 
+import ScrollToTop from './components/ScrollToTop';
+
 // Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -34,6 +36,7 @@ import AdminBlogs from './pages/admin/AdminBlogs';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">
