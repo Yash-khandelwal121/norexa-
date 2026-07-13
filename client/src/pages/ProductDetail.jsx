@@ -82,7 +82,7 @@ const ProductDetail = () => {
             <div className="uppercase tracking-widest text-sm font-bold text-primary mb-2">
               {product.type}
             </div>
-            <h1 className="text-4xl lg:text-5xl font-black mb-4">{product.title}</h1>
+            <h1 className="text-4xl lg:text-5xl font-black text-slate-900 mb-4">{product.title}</h1>
             
             <div className="flex items-center space-x-4 mb-6">
               <span className="text-3xl font-bold text-slate-900">${product.price.toFixed(2)}</span>
